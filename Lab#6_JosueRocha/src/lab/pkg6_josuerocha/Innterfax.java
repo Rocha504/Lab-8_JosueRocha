@@ -108,8 +108,8 @@ public class Innterfax extends javax.swing.JFrame {
         label13 = new java.awt.Label();
         newgenderfield = new javax.swing.JComboBox<>();
         modifybutton = new java.awt.Button();
-        jPanel4 = new javax.swing.JPanel();
-        button1 = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListaProgramas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -319,7 +319,7 @@ public class Innterfax extends javax.swing.JFrame {
 
         label8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         label8.setForeground(new java.awt.Color(51, 51, 51));
-        label8.setText("Posicion del programa que desea modificar (Ver consola)");
+        label8.setText("Posicion del programa que desea modificar (Ver lista)");
 
         posicionfield.setText(" ");
 
@@ -361,10 +361,50 @@ public class Innterfax extends javax.swing.JFrame {
             }
         });
 
+        ListaProgramas.setColumns(20);
+        ListaProgramas.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
+        ListaProgramas.setForeground(new java.awt.Color(51, 51, 51));
+        ListaProgramas.setRows(5);
+        jScrollPane1.setViewportView(ListaProgramas);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(posicionfield, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(newnamefield, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(newpfield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(newyearfield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(newtypefield, 0, 77, Short.MAX_VALUE))))
+                        .addGap(4, 4, 4)
+                        .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newgenderfield, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(107, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -374,60 +414,32 @@ public class Innterfax extends javax.swing.JFrame {
                         .addComponent(choosebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(posicionfield, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(newnamefield, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(newpfield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(newyearfield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(newtypefield, 0, 77, Short.MAX_VALUE))))
-                                .addGap(4, 4, 4)
-                                .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(newgenderfield, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(107, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(posicionfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(choosebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(claudilists, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(71, 71, 71)
+                            .addComponent(claudilists, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
-                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(posicionfield, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,37 +459,11 @@ public class Innterfax extends javax.swing.JFrame {
                         .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(newtypefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(newgenderfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Modificar Listas", jPanel3);
-
-        button1.setLabel("Archivo");
-        button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(650, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(454, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab4", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -499,6 +485,46 @@ public class Innterfax extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void modifybuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifybuttonMouseClicked
+        String nombre;
+        String nombreA;
+        int puntuacion;
+        int fecha;
+        int position;
+        String tipo;
+        String genero;
+
+        position=Integer.parseInt(posicionfield.getText());
+        nombreA=(String) claudilists.getSelectedItem();
+        nombre=newnamefield.getText();
+        puntuacion=Integer.parseInt(newpfield.getText());
+        tipo=(String) newtypefield.getSelectedItem();
+        genero=(String) newgenderfield.getSelectedItem();
+        fecha=Integer.parseInt(newyearfield.getText());
+
+        Claudilist ap=new Claudilist("./"+nombreA+".txt");
+        try {
+            ap.modificarPrograma(ap,nombre,position, puntuacion, fecha, tipo, genero);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this,"Lista modificada exitosamente");
+        newnamefield.setText("");
+        newpfield.setText("");
+        newyearfield.setText("");
+
+    }//GEN-LAST:event_modifybuttonMouseClicked
+
+    private void choosebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choosebuttonMouseClicked
+        String archivo=(String) claudilists.getSelectedItem();
+        Claudilist ap=new Claudilist();
+        try {
+            ap.mostrarArchivo(archivo,ListaProgramas);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_choosebuttonMouseClicked
+
     private void savebutton_showsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebutton_showsMouseClicked
         String nombre;
         int puntuacion;
@@ -506,15 +532,15 @@ public class Innterfax extends javax.swing.JFrame {
         String tipo;
         String genero;
         DefaultComboBoxModel modelo=(DefaultComboBoxModel) showsfield.getModel();
-        
+
         try{
-            
+
             nombre=namefield_shows.getText();
             puntuacion=Integer.parseInt(puntuacionfield_shows.getText());
             tipo=(String) tipofield_shows.getSelectedItem();
             genero=(String) generofield_shows.getSelectedItem();
             fecha=Integer.parseInt(fechafield_shows.getText());
-            
+
             Programa shows=new Programa(nombre,puntuacion,fecha,tipo,genero);
             modelo.addElement(shows);
             showsfield.setModel(modelo);
@@ -524,17 +550,21 @@ public class Innterfax extends javax.swing.JFrame {
             fechafield_shows.setText("");
         }
         catch(Exception e){
-             JOptionPane.showMessageDialog(this,"ERROR: REVISAR CONSOLA");
-             System.out.println("Ocurrio un error.");
-             System.out.println("Tips para prevenir errores: ");
-             System.out.println("Asegurese de no tener ningun espacio en la puntuacion y fecha");
-             System.out.println("Llene todos los campos.");
-             System.out.println("Presione guardar hasta que todos los cambos esten llenos");
-             System.out.println("La lista debe contener al menos un programa");
-        }
+            JOptionPane.showMessageDialog(this,"ERROR");
+            JOptionPane.showMessageDialog(this,"Ocurrio un error.\n \nTips para prevenir errores:\n*Asegurese de no tener ningun espacio en la puntuacion y fecha\n*Llene todos los campos.\n*Presione guardar hasta que todos los cambos esten llenos\n*La lista debe contener al menos un programa");
             
-        
+            
+        }
+
     }//GEN-LAST:event_savebutton_showsMouseClicked
+
+    private void AgregarshowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarshowMouseClicked
+
+        if(showsfield.getSelectedIndex()>=0){
+            seleccionados.add((Programa)showsfield.getSelectedItem());
+        }
+       JOptionPane.showMessageDialog(this,"Programa agregado a la lista");
+    }//GEN-LAST:event_AgregarshowMouseClicked
 
     private void savebutton_listsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebutton_listsMouseClicked
 
@@ -554,66 +584,6 @@ public class Innterfax extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_savebutton_listsMouseClicked
-
-    private void AgregarshowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarshowMouseClicked
-
-        if(showsfield.getSelectedIndex()>=0){
-            seleccionados.add((Programa)showsfield.getSelectedItem());
-        }
-    }//GEN-LAST:event_AgregarshowMouseClicked
-
-    private void modifybuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifybuttonMouseClicked
-        String nombre;
-        String nombreA;
-        int puntuacion;
-        int fecha;
-        int position;
-        String tipo;
-        String genero;
-        
-        
-            position=Integer.parseInt(posicionfield.getText());
-            nombreA=(String) claudilists.getSelectedItem();
-            nombre=newnamefield.getText();
-            puntuacion=Integer.parseInt(newpfield.getText());
-            tipo=(String) newtypefield.getSelectedItem();
-            genero=(String) newgenderfield.getSelectedItem();
-            fecha=Integer.parseInt(newyearfield.getText());
-            
-            Claudilist ap=new Claudilist("./"+nombreA+".txt");
-            try {
-                ap.modificarPrograma(ap,nombre,position, puntuacion, fecha, tipo, genero);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(this,"Lista modificada exitosamente");
-            newnamefield.setText("");
-            newpfield.setText("");
-            newyearfield.setText("");
-        
-        
-    }//GEN-LAST:event_modifybuttonMouseClicked
-
-    private void choosebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choosebuttonMouseClicked
-        String archivo=(String) claudilists.getSelectedItem();
-        Claudilist ap=new Claudilist();
-            try {
-                ap.mostrarArchivo(archivo);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-    }//GEN-LAST:event_choosebuttonMouseClicked
-
-    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        
-            Claudilist ap=new Claudilist("Archivo para clau");
-            try {
-                ap.escribirC();
-            } catch (IOException ex) {
-                Logger.getLogger(Innterfax.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-    }//GEN-LAST:event_button1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -652,7 +622,7 @@ public class Innterfax extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button Agregarshow;
-    private java.awt.Button button1;
+    private javax.swing.JTextArea ListaProgramas;
     private java.awt.Button choosebutton;
     private javax.swing.JComboBox<String> claudilists;
     private java.awt.TextField fechafield_shows;
@@ -663,7 +633,7 @@ public class Innterfax extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private java.awt.Label label1;
     private java.awt.Label label10;

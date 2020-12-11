@@ -1,6 +1,7 @@
  
 package lab.pkg6_josuerocha;
 
+import java.awt.TextArea;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -93,7 +95,7 @@ public class Claudilist {
         }
     }
     
-    public void mostrarArchivo(String n) throws FileNotFoundException, IOException{
+    public void mostrarArchivo(String n,JTextArea j) throws FileNotFoundException, IOException{// Lo modifica para que el archivo ya no aparezca en consola si no que en un text area
         File archivo=null;
         FileReader fr=null;
         BufferedReader br=null;
@@ -102,8 +104,11 @@ public class Claudilist {
             fr=new FileReader (archivo);
             br=new BufferedReader(fr);
             String linea="";
+            int i=0;
             while((linea=br.readLine()) != null){
-                System.out.println(linea);   
+                j.append(i+"-"+linea+"\n");   
+                i++;
+                
             
         }
     }
