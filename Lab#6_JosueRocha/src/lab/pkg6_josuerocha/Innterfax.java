@@ -99,6 +99,7 @@ public class Innterfax extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cargarA = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         label2 = new java.awt.Label();
         namefield_shows = new java.awt.TextField();
@@ -146,6 +147,11 @@ public class Innterfax extends javax.swing.JFrame {
         jLabel1.setText("Nombre de ClaudiList");
 
         namefield_clau.setText(" ");
+        namefield_clau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namefield_clauActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -164,9 +170,19 @@ public class Innterfax extends javax.swing.JFrame {
                 savebutton_listsMouseClicked(evt);
             }
         });
+        savebutton_lists.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savebutton_listsActionPerformed(evt);
+            }
+        });
 
         showsfield.setForeground(new java.awt.Color(51, 51, 51));
         showsfield.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        showsfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showsfieldActionPerformed(evt);
+            }
+        });
 
         Agregarshow.setBackground(new java.awt.Color(51, 102, 255));
         Agregarshow.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -187,7 +203,7 @@ public class Innterfax extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Seleccione el Archivo que desea Cargar");
+        jLabel8.setText("Haga click Seleccione el Archivo que desea Cargar (opcional)");
 
         cargarA.setBackground(new java.awt.Color(0, 153, 255));
         cargarA.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -198,48 +214,59 @@ public class Innterfax extends javax.swing.JFrame {
                 cargarAMouseClicked(evt);
             }
         });
+        cargarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargarAActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Despues de llenar todos los campos haga click aqui-->");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(namefield_clau, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 52, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(showsfield, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(savebutton_lists, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)))
-                        .addComponent(Agregarshow, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(309, 309, 309))))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(namefield_clau, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(reloj1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(cargarA)
-                        .addGap(83, 83, 83)))
-                .addGap(99, 99, 99))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Agregarshow, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(showsfield, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addComponent(savebutton_lists, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(244, 244, 244))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(reloj1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(cargarA)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,21 +279,26 @@ public class Innterfax extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namefield_clau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(showsfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Agregarshow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(savebutton_lists, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(cargarA)
-                .addGap(34, 34, 34))
+                    .addComponent(Agregarshow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(showsfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(savebutton_lists, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(cargarA)
+                        .addGap(31, 31, 31))))
         );
 
         jTabbedPane1.addTab("Crear ClaudiList", jPanel1);
@@ -682,14 +714,14 @@ public class Innterfax extends javax.swing.JFrame {
 
     private void savebutton_listsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebutton_listsMouseClicked
 
-        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) listaArchivos.getModel();
+     
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) claudilists.getModel();
         String nombre;
 
         try {
             nombre = namefield_clau.getText();
             modelo.addElement(nombre);
-            modelo2.addElement(nombre);
+           
             listas.add(nombre);
             Claudilist m = new Claudilist(nombre, seleccionados);
             m.escribir();
@@ -697,7 +729,6 @@ public class Innterfax extends javax.swing.JFrame {
             namefield_clau.setText("");
             seleccionados.clear();
             claudilists.setModel(modelo);
-            listaArchivos.setModel(modelo2);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -716,7 +747,8 @@ public class Innterfax extends javax.swing.JFrame {
         int op = fc.showOpenDialog(this);
         if (op == JFileChooser.APPROVE_OPTION) {
             archivo = fc.getSelectedFile();
-            int number = (int) archivo.length() - 4;
+            int number = archivo.getName().length() - 4;
+            System.out.println(number);
             String nombre = archivo.getName().substring(0, number);
             Claudilist ap = new Claudilist(nombre);
             ap.cargarArchivo();
@@ -730,6 +762,22 @@ public class Innterfax extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_cargarAMouseClicked
+
+    private void savebutton_listsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebutton_listsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_savebutton_listsActionPerformed
+
+    private void showsfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showsfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showsfieldActionPerformed
+
+    private void namefield_clauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namefield_clauActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namefield_clauActionPerformed
+
+    private void cargarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cargarAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -782,6 +830,7 @@ public class Innterfax extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
