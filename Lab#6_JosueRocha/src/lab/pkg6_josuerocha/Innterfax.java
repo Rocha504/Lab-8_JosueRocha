@@ -5,64 +5,72 @@
  */
 package lab.pkg6_josuerocha;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author josue
  */
 public class Innterfax extends javax.swing.JFrame {
-        private ArrayList seleccionados=new ArrayList<Programa>();
-        
+
+    private ArrayList seleccionados = new ArrayList<Programa>();
 
     /**
      * Creates new form Innterfax
      */
     public Innterfax() {
         initComponents();
-        Reloj reloj=new Reloj(reloj1);
-        Thread primero=new Thread(reloj);
+        Reloj reloj = new Reloj(reloj1);
+        Thread primero = new Thread(reloj);
         primero.start();
-        Reloj oreloj=new Reloj(reloj2);
-        Thread segundo=new Thread(oreloj);
+        Reloj oreloj = new Reloj(reloj2);
+        Thread segundo = new Thread(oreloj);
         segundo.start();
-        Reloj areloj=new Reloj(reloj3);
-        Thread tercero=new Thread(areloj);
+        Reloj areloj = new Reloj(reloj3);
+        Thread tercero = new Thread(areloj);
         tercero.start();
-        
-        DefaultComboBoxModel modelo=(DefaultComboBoxModel) tipofield_shows.getModel();
-        DefaultComboBoxModel modelo2=(DefaultComboBoxModel) generofield_shows.getModel();
-        DefaultComboBoxModel modelo3=(DefaultComboBoxModel) newtypefield.getModel();
-        DefaultComboBoxModel modelo4=(DefaultComboBoxModel) newgenderfield.getModel();
-        
+
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) tipofield_shows.getModel();
+        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) generofield_shows.getModel();
+        DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) newtypefield.getModel();
+        DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) newgenderfield.getModel();
+        DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) newgenderfield.getModel();
+
         modelo.addElement("Anime");
         modelo.addElement("Serie");
         modelo.addElement("Pelicula");
         modelo.addElement("Documental");
-        
+
         modelo2.addElement("Comedia");
         modelo2.addElement("Romance");
         modelo2.addElement("SyFy");
         modelo2.addElement("Suspenso");
         modelo2.addElement("Accion");
-        
+
         modelo3.addElement("Anime");
         modelo3.addElement("Serie");
         modelo3.addElement("Pelicula");
         modelo3.addElement("Documental");
-        
+
         modelo4.addElement("Comedia");
         modelo4.addElement("Romance");
         modelo4.addElement("SyFy");
         modelo4.addElement("Suspenso");
         modelo4.addElement("Accion");
-        
+
         tipofield_shows.setModel(modelo);
         generofield_shows.setModel(modelo2);
         newtypefield.setModel(modelo3);
@@ -89,10 +97,8 @@ public class Innterfax extends javax.swing.JFrame {
         Agregarshow = new java.awt.Button();
         reloj1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        listaArchivos = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        cargarA = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         label2 = new java.awt.Label();
         namefield_shows = new java.awt.TextField();
@@ -179,20 +185,19 @@ public class Innterfax extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("HORA");
 
-        listaArchivos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Cargar Archivo");
+        jLabel8.setText("Seleccione el Archivo que desea Cargar");
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Cargar");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Seleccione el nombre del archivo que desea Cargar -->");
+        cargarA.setBackground(new java.awt.Color(0, 153, 255));
+        cargarA.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cargarA.setForeground(new java.awt.Color(51, 51, 51));
+        cargarA.setText("Cargar");
+        cargarA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cargarAMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -227,20 +232,14 @@ public class Innterfax extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(86, 86, 86))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(listaArchivos, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(99, 99, 99))))
+                        .addComponent(cargarA)
+                        .addGap(83, 83, 83)))
+                .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,15 +262,11 @@ public class Innterfax extends javax.swing.JFrame {
                     .addComponent(Agregarshow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(savebutton_lists, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listaArchivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addComponent(cargarA)
+                .addGap(34, 34, 34))
         );
 
         jTabbedPane1.addTab("Crear ClaudiList", jPanel1);
@@ -615,21 +610,21 @@ public class Innterfax extends javax.swing.JFrame {
         String tipo;
         String genero;
 
-        position=Integer.parseInt(posicionfield.getText());
-        nombreA=(String) claudilists.getSelectedItem();
-        nombre=newnamefield.getText();
-        puntuacion=Integer.parseInt(newpfield.getText());
-        tipo=(String) newtypefield.getSelectedItem();
-        genero=(String) newgenderfield.getSelectedItem();
-        fecha=Integer.parseInt(newyearfield.getText());
+        position = Integer.parseInt(posicionfield.getText());
+        nombreA = (String) claudilists.getSelectedItem();
+        nombre = newnamefield.getText();
+        puntuacion = Integer.parseInt(newpfield.getText());
+        tipo = (String) newtypefield.getSelectedItem();
+        genero = (String) newgenderfield.getSelectedItem();
+        fecha = Integer.parseInt(newyearfield.getText());
 
-        Claudilist ap=new Claudilist("./"+nombreA+".txt");
+        Claudilist ap = new Claudilist("./" + nombreA + ".txt");
         try {
-            ap.modificarPrograma(ap,nombre,position, puntuacion, fecha, tipo, genero);
+            ap.modificarPrograma(ap, nombre, position, puntuacion, fecha, tipo, genero);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        JOptionPane.showMessageDialog(this,"Lista modificada exitosamente");
+        JOptionPane.showMessageDialog(this, "Lista modificada exitosamente");
         newnamefield.setText("");
         newpfield.setText("");
         newyearfield.setText("");
@@ -637,10 +632,10 @@ public class Innterfax extends javax.swing.JFrame {
     }//GEN-LAST:event_modifybuttonMouseClicked
 
     private void choosebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choosebuttonMouseClicked
-        String archivo=(String) claudilists.getSelectedItem();
-        Claudilist ap=new Claudilist();
+        String archivo = (String) claudilists.getSelectedItem();
+        Claudilist ap = new Claudilist();
         try {
-            ap.mostrarArchivo(archivo,ListaProgramas);
+            ap.mostrarArchivo(archivo, ListaProgramas);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -652,54 +647,53 @@ public class Innterfax extends javax.swing.JFrame {
         int fecha;
         String tipo;
         String genero;
-        DefaultComboBoxModel modelo=(DefaultComboBoxModel) showsfield.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) showsfield.getModel();
 
-        try{
+        try {
 
-            nombre=namefield_shows.getText();
-            puntuacion=Integer.parseInt(puntuacionfield_shows.getText());
-            tipo=(String) tipofield_shows.getSelectedItem();
-            genero=(String) generofield_shows.getSelectedItem();
-            fecha=Integer.parseInt(fechafield_shows.getText());
+            nombre = namefield_shows.getText();
+            puntuacion = Integer.parseInt(puntuacionfield_shows.getText());
+            tipo = (String) tipofield_shows.getSelectedItem();
+            genero = (String) generofield_shows.getSelectedItem();
+            fecha = Integer.parseInt(fechafield_shows.getText());
 
-            Programa shows=new Programa(nombre,puntuacion,fecha,tipo,genero);
+            Programa shows = new Programa(nombre, puntuacion, fecha, tipo, genero);
             modelo.addElement(shows);
             showsfield.setModel(modelo);
-            JOptionPane.showMessageDialog(this,"Programa agregado exitosamente");
+            JOptionPane.showMessageDialog(this, "Programa agregado exitosamente");
             namefield_shows.setText("");
             puntuacionfield_shows.setText("");
             fechafield_shows.setText("");
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(this,"ERROR");
-            JOptionPane.showMessageDialog(this,"Ocurrio un error.\n \nTips para prevenir errores:\n*Asegurese de no tener ningun espacio en la puntuacion y fecha\n*Llene todos los campos.\n*Presione guardar hasta que todos los cambos esten llenos\n*La lista debe contener al menos un programa");
-            
-            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ERROR");
+            JOptionPane.showMessageDialog(this, "Ocurrio un error.\n \nTips para prevenir errores:\n*Asegurese de no tener ningun espacio en la puntuacion y fecha\n*Llene todos los campos.\n*Presione guardar hasta que todos los cambos esten llenos\n*La lista debe contener al menos un programa");
+
         }
 
     }//GEN-LAST:event_savebutton_showsMouseClicked
 
     private void AgregarshowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarshowMouseClicked
 
-        if(showsfield.getSelectedIndex()>=0){
-            seleccionados.add((Programa)showsfield.getSelectedItem());
+        if (showsfield.getSelectedIndex() >= 0) {
+            seleccionados.add((Programa) showsfield.getSelectedItem());
         }
-       JOptionPane.showMessageDialog(this,"Programa agregado a la lista");
+        JOptionPane.showMessageDialog(this, "Programa agregado a la lista");
     }//GEN-LAST:event_AgregarshowMouseClicked
 
     private void savebutton_listsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebutton_listsMouseClicked
 
-        DefaultComboBoxModel modelo2=(DefaultComboBoxModel) listaArchivos.getModel();
-        DefaultComboBoxModel modelo=(DefaultComboBoxModel) claudilists.getModel();
+        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) listaArchivos.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) claudilists.getModel();
         String nombre;
 
         try {
-            nombre=namefield_clau.getText();
+            nombre = namefield_clau.getText();
             modelo.addElement(nombre);
             modelo2.addElement(nombre);
-            Claudilist m=new Claudilist(nombre,seleccionados);
+            listas.add(nombre);
+            Claudilist m = new Claudilist(nombre, seleccionados);
             m.escribir();
-            JOptionPane.showMessageDialog(this,"ClaudiList creada correctamente. \n Se ha creado un Archivo");
+            JOptionPane.showMessageDialog(this, "ClaudiList creada correctamente. \n Se ha creado un Archivo");
             namefield_clau.setText("");
             seleccionados.clear();
             claudilists.setModel(modelo);
@@ -708,6 +702,34 @@ public class Innterfax extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_savebutton_listsMouseClicked
+
+    private void cargarAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cargarAMouseClicked
+        //Aqui agrege el fileChooser que me faltaba para poder cargar archivos al programa.
+        
+        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) showsfield.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) claudilists.getModel();
+        JFileChooser fc = new JFileChooser();
+        FileFilter filtro = new FileNameExtensionFilter("Listas",
+                "png", "jpg", "jpeg", "txt");
+        fc.setFileFilter(filtro);
+        File archivo;
+        int op = fc.showOpenDialog(this);
+        if (op == JFileChooser.APPROVE_OPTION) {
+            archivo = fc.getSelectedFile();
+            int number = (int) archivo.length() - 4;
+            String nombre = archivo.getName().substring(0, number);
+            Claudilist ap = new Claudilist(nombre);
+            ap.cargarArchivo();
+            for (Programa i : ap.getProgramas()) {
+                modelo2.addElement(i);
+            }
+            modelo.addElement(ap.getNombre());
+            showsfield.setModel(modelo2);
+            claudilists.setModel(modelo);
+        }
+
+
+    }//GEN-LAST:event_cargarAMouseClicked
 
     /**
      * @param args the command line arguments
@@ -747,11 +769,11 @@ public class Innterfax extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button Agregarshow;
     private javax.swing.JTextArea ListaProgramas;
+    private javax.swing.JButton cargarA;
     private java.awt.Button choosebutton;
     private javax.swing.JComboBox<String> claudilists;
     private java.awt.TextField fechafield_shows;
     private javax.swing.JComboBox<String> generofield_shows;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -760,7 +782,6 @@ public class Innterfax extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -779,7 +800,6 @@ public class Innterfax extends javax.swing.JFrame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
-    private javax.swing.JComboBox<String> listaArchivos;
     private java.awt.Button modifybutton;
     private java.awt.TextField namefield_clau;
     private java.awt.TextField namefield_shows;
@@ -798,10 +818,7 @@ public class Innterfax extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> showsfield;
     private javax.swing.JComboBox<String> tipofield_shows;
     // End of variables declaration//GEN-END:variables
- 
 
+    ArrayList<String> listas = new ArrayList();
 
 }
-
-
-

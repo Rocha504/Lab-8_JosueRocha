@@ -20,7 +20,7 @@ public class Reloj implements Runnable{
     }
 
     @Override
-    public void run() {
+    public void run() {//Este metodo simula un reloj dandole texto a un JLabel con la hora de la computadora
         while(true){
             Date x=new Date();
             DateFormat y=new SimpleDateFormat("hh:mm:ss");
