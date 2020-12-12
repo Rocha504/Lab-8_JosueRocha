@@ -525,6 +525,8 @@ public class Innterfax extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Ver listas", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(153, 51, 255));
+
         newtypefield.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
         label12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -661,6 +663,8 @@ public class Innterfax extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Modificar Programas", jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(51, 51, 51));
