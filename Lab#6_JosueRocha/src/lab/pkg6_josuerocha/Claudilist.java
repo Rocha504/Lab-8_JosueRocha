@@ -57,7 +57,7 @@ public class Claudilist {
         BufferedWriter bw = null;
         File archivo=null;
         try {
-            archivo=new File("./"+getNombre()+".txt");
+            archivo=new File("./"+getNombre()+".txt");//Hago esta validacion ya que el proyecto pide que el nombre del Archivo sea el mismo que el de la claudilist.
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (Programa c : programas) {
@@ -121,7 +121,6 @@ public class Claudilist {
         
         ap.cargarArchivo();
         ap.getProgramas().get(p).setNombre(n);
-        ap.escribir();
         ap.getProgramas().get(p).setPuntuacion(puntuacion);
         ap.getProgramas().get(p).setFecha(fecha);
         ap.getProgramas().get(p).setTipo(tipo);
@@ -129,7 +128,7 @@ public class Claudilist {
         ap.escribir();
         
     }
-    public void escribirC() throws IOException {
+    public void escribirC() throws IOException {// Este metodo creo un archivo de texto para Claudia que se puede encontrar dentro de la carpeta del proyecto.
         FileWriter fw = null;
         BufferedWriter bw = null;
         File archivo=null;

@@ -65,7 +65,7 @@ public class Programa {
     }
 
     @Override
-    public String toString() {
+    public String toString() {// Solamente inclui el nombre,tipo y genero para que se pueda desplegar mejor en la combobox para elegir programas.
         return nombre+"("+tipo+"-"+genero+")";
     }
     

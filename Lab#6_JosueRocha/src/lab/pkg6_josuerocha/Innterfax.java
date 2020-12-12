@@ -33,7 +33,7 @@ public class Innterfax extends javax.swing.JFrame {
      */
     public Innterfax() {
         initComponents();
-        Reloj reloj = new Reloj(reloj1);
+        Reloj reloj = new Reloj(reloj1);//Aca empiezo a implmentar el hilo para el reloj
         Thread primero = new Thread(reloj);
         primero.start();
         Reloj oreloj = new Reloj(reloj2);
@@ -41,11 +41,11 @@ public class Innterfax extends javax.swing.JFrame {
         segundo.start();
         Reloj areloj = new Reloj(reloj3);
         Thread tercero = new Thread(areloj);
-        tercero.start();
+        tercero.start();//Aca ya esta implementado el hilo para el reloj
 
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) tipofield_shows.getModel();
         DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) generofield_shows.getModel();
-        DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) newtypefield.getModel();
+        DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) newtypefield.getModel();//Estas son referencias a todas las combobox del programa para agregarles opciones
         DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) newgenderfield.getModel();
         DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) newgenderfield.getModel();
 
@@ -86,6 +86,7 @@ public class Innterfax extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -114,29 +115,39 @@ public class Innterfax extends javax.swing.JFrame {
         savebutton_shows = new java.awt.Button();
         reloj2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         claudilists = new javax.swing.JComboBox<>();
         choosebutton = new java.awt.Button();
         jLabel3 = new javax.swing.JLabel();
-        label7 = new java.awt.Label();
-        label8 = new java.awt.Label();
-        posicionfield = new java.awt.TextField();
-        label9 = new java.awt.Label();
-        newnamefield = new java.awt.TextField();
-        label10 = new java.awt.Label();
-        newpfield = new java.awt.TextField();
-        label11 = new java.awt.Label();
-        newyearfield = new java.awt.TextField();
-        label12 = new java.awt.Label();
-        newtypefield = new javax.swing.JComboBox<>();
-        label13 = new java.awt.Label();
-        newgenderfield = new javax.swing.JComboBox<>();
-        modifybutton = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaProgramas = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         reloj3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        newtypefield = new javax.swing.JComboBox<>();
+        label12 = new java.awt.Label();
+        label13 = new java.awt.Label();
+        newgenderfield = new javax.swing.JComboBox<>();
+        label11 = new java.awt.Label();
+        newyearfield = new java.awt.TextField();
+        newpfield = new java.awt.TextField();
+        label10 = new java.awt.Label();
+        label9 = new java.awt.Label();
+        newnamefield = new java.awt.TextField();
+        modifybutton = new java.awt.Button();
+        label7 = new java.awt.Label();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaprogramas = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
+        pos = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listaeliminar = new javax.swing.JTextArea();
+        eliminarfield = new javax.swing.JTextField();
+        Eliminate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -254,8 +265,8 @@ public class Innterfax extends javax.swing.JFrame {
                                 .addComponent(savebutton_lists, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(244, 244, 244))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(reloj1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(reloj1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -351,6 +362,10 @@ public class Innterfax extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("HORA");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Llene los siguientes campos");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -385,8 +400,11 @@ public class Innterfax extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(reloj2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6)))
-                .addContainerGap(291, Short.MAX_VALUE))
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jLabel10)))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,7 +413,9 @@ public class Innterfax extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reloj2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(65, 65, 65)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(namefield_shows, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -415,7 +435,7 @@ public class Innterfax extends javax.swing.JFrame {
                     .addComponent(tipofield_shows, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78)
                 .addComponent(savebutton_shows, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Agregar Programa", jPanel2);
@@ -433,54 +453,7 @@ public class Innterfax extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Elija una lista para modificar");
-
-        label7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label7.setText("Modificar aqui una vez que haya seleccionado");
-
-        label8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label8.setForeground(new java.awt.Color(51, 51, 51));
-        label8.setText("Posicion del programa que desea modificar (Ver lista)");
-
-        posicionfield.setText(" ");
-
-        label9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label9.setText("Nuevo nombre del programa");
-
-        newnamefield.setForeground(new java.awt.Color(51, 51, 51));
-        newnamefield.setText(" ");
-
-        label10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label10.setForeground(new java.awt.Color(51, 51, 51));
-        label10.setText("Nueva puntuacion del programa");
-
-        newpfield.setText(" ");
-
-        label11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label11.setForeground(new java.awt.Color(51, 51, 51));
-        label11.setText("Nuevo año de lanzamiento");
-
-        newyearfield.setText(" ");
-
-        label12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label12.setText("Nuevo tipo de pelicula");
-
-        newtypefield.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
-
-        label13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label13.setForeground(new java.awt.Color(51, 51, 51));
-        label13.setText("Nuevo genero de pelicula");
-
-        newgenderfield.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
-
-        modifybutton.setBackground(new java.awt.Color(204, 0, 0));
-        modifybutton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        modifybutton.setLabel("Modificar");
-        modifybutton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifybuttonMouseClicked(evt);
-            }
-        });
+        jLabel3.setText("Elija una lista para ver");
 
         ListaProgramas.setColumns(20);
         ListaProgramas.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
@@ -505,113 +478,238 @@ public class Innterfax extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(newnamefield, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(newpfield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(newyearfield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(newtypefield, 0, 77, Short.MAX_VALUE))))
-                        .addGap(4, 4, 4)
-                        .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(newgenderfield, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(posicionfield, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(107, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(reloj3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(claudilists, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(choosebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel3)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(reloj3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(claudilists, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(choosebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(100, 100, 100))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(170, 170, 170))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reloj3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel4))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(reloj3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)))
-                        .addGap(31, 31, 31)
+                        .addGap(146, 146, 146)
                         .addComponent(jLabel3)
-                        .addGap(20, 20, 20)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(choosebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(claudilists, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(claudilists, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(choosebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(posicionfield, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newnamefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newpfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newyearfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(newtypefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(newgenderfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99))))
         );
 
-        jTabbedPane1.addTab("Modificar Listas", jPanel3);
+        jTabbedPane1.addTab("Ver listas", jPanel3);
+
+        newtypefield.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        label12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label12.setText("Nuevo tipo de programa");
+
+        label13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label13.setForeground(new java.awt.Color(51, 51, 51));
+        label13.setText("Nuevo genero de programa");
+
+        newgenderfield.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        label11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label11.setForeground(new java.awt.Color(51, 51, 51));
+        label11.setText("Nuevo año de lanzamiento");
+
+        newyearfield.setText(" ");
+
+        newpfield.setText(" ");
+
+        label10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label10.setForeground(new java.awt.Color(51, 51, 51));
+        label10.setText("Nueva puntuacion del programa");
+
+        label9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label9.setText("Nuevo nombre del programa");
+
+        newnamefield.setForeground(new java.awt.Color(51, 51, 51));
+        newnamefield.setText(" ");
+
+        modifybutton.setBackground(new java.awt.Color(204, 0, 0));
+        modifybutton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        modifybutton.setLabel("Modificar");
+        modifybutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifybuttonMouseClicked(evt);
+            }
+        });
+
+        label7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label7.setText("Modificar aqui una vez que haya seleccionado");
+
+        listaprogramas.setColumns(20);
+        listaprogramas.setRows(5);
+        jScrollPane2.setViewportView(listaprogramas);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel11.setText("Posicion del programa a modificar(Ver lista)");
+
+        pos.setText(" ");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pos, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newnamefield, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(newyearfield, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(newtypefield, 0, 73, Short.MAX_VALUE)
+                                .addComponent(newgenderfield, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newpfield, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(383, 383, 383))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(pos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newnamefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newtypefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newgenderfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newyearfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newpfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(88, 88, 88))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jScrollPane2)
+                        .addGap(36, 36, 36)
+                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(modifybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        jTabbedPane1.addTab("Modificar Programas", jPanel4);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel12.setText("Elija la posicion del programa que quiere eliminar");
+
+        listaeliminar.setColumns(20);
+        listaeliminar.setRows(5);
+        jScrollPane3.setViewportView(listaeliminar);
+
+        eliminarfield.setText(" ");
+
+        Eliminate.setText("Eliminar");
+        Eliminate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminateMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminarfield, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(Eliminate))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(eliminarfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Eliminate))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Eliminar programas", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -634,38 +732,31 @@ public class Innterfax extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void modifybuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifybuttonMouseClicked
-        String nombre;
-        String nombreA;
-        int puntuacion;
-        int fecha;
-        int position;
-        String tipo;
-        String genero;
+        //este metodo modifica archivos
+        
+        String nombre=newnamefield.getText();      
+        int puntuacion=Integer.parseInt(newpfield.getText());
+        int fecha=Integer.parseInt(newyearfield.getText());
+        int position=Integer.parseInt(pos.getText());
+        String tipo=(String)newtypefield.getSelectedItem();
+        String genero=(String)newgenderfield.getSelectedItem();
 
-        position = Integer.parseInt(posicionfield.getText());
-        nombreA = (String) claudilists.getSelectedItem();
-        nombre = newnamefield.getText();
-        puntuacion = Integer.parseInt(newpfield.getText());
-        tipo = (String) newtypefield.getSelectedItem();
-        genero = (String) newgenderfield.getSelectedItem();
-        fecha = Integer.parseInt(newyearfield.getText());
-
-        Claudilist ap = new Claudilist("./" + nombreA + ".txt");
-        try {
-            ap.modificarPrograma(ap, nombre, position, puntuacion, fecha, tipo, genero);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        JOptionPane.showMessageDialog(this, "Lista modificada exitosamente");
-        newnamefield.setText("");
-        newpfield.setText("");
-        newyearfield.setText("");
+        programas.get(position).setNombre(nombre);
+        programas.get(position).setPuntuacion(puntuacion);
+        programas.get(position).setFecha(fecha);
+        programas.get(position).setTipo(tipo);
+        programas.get(position).setGenero(genero);
+        
+        JOptionPane.showMessageDialog(this,"Programa modificado exitosamente");
+        
+         
 
     }//GEN-LAST:event_modifybuttonMouseClicked
 
     private void choosebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choosebuttonMouseClicked
         String archivo = (String) claudilists.getSelectedItem();
         Claudilist ap = new Claudilist();
+        ListaProgramas.setText("");
         try {
             ap.mostrarArchivo(archivo, ListaProgramas);
         } catch (IOException ex) {
@@ -680,6 +771,7 @@ public class Innterfax extends javax.swing.JFrame {
         String tipo;
         String genero;
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) showsfield.getModel();
+        int i=0;
 
         try {
 
@@ -691,11 +783,15 @@ public class Innterfax extends javax.swing.JFrame {
 
             Programa shows = new Programa(nombre, puntuacion, fecha, tipo, genero);
             modelo.addElement(shows);
+            programas.add(shows);
+            listaprogramas.append(i+"-"+shows.toString()+"\n");
+            listaeliminar.append(i+"-"+shows.toString()+"\n");
             showsfield.setModel(modelo);
             JOptionPane.showMessageDialog(this, "Programa agregado exitosamente");
             namefield_shows.setText("");
             puntuacionfield_shows.setText("");
             fechafield_shows.setText("");
+            i++;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR");
             JOptionPane.showMessageDialog(this, "Ocurrio un error.\n \nTips para prevenir errores:\n*Asegurese de no tener ningun espacio en la puntuacion y fecha\n*Llene todos los campos.\n*Presione guardar hasta que todos los cambos esten llenos\n*La lista debe contener al menos un programa");
@@ -722,7 +818,6 @@ public class Innterfax extends javax.swing.JFrame {
             nombre = namefield_clau.getText();
             modelo.addElement(nombre);
            
-            listas.add(nombre);
             Claudilist m = new Claudilist(nombre, seleccionados);
             m.escribir();
             JOptionPane.showMessageDialog(this, "ClaudiList creada correctamente. \n Se ha creado un Archivo");
@@ -741,14 +836,13 @@ public class Innterfax extends javax.swing.JFrame {
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) claudilists.getModel();
         JFileChooser fc = new JFileChooser();
         FileFilter filtro = new FileNameExtensionFilter("Listas",
-                "png", "jpg", "jpeg", "txt");
+                 "txt");
         fc.setFileFilter(filtro);
         File archivo;
         int op = fc.showOpenDialog(this);
         if (op == JFileChooser.APPROVE_OPTION) {
             archivo = fc.getSelectedFile();
             int number = archivo.getName().length() - 4;
-            System.out.println(number);
             String nombre = archivo.getName().substring(0, number);
             Claudilist ap = new Claudilist(nombre);
             ap.cargarArchivo();
@@ -759,6 +853,7 @@ public class Innterfax extends javax.swing.JFrame {
             showsfield.setModel(modelo2);
             claudilists.setModel(modelo);
         }
+        JOptionPane.showMessageDialog(this,"Se cargo el Archivo correctamente");
 
 
     }//GEN-LAST:event_cargarAMouseClicked
@@ -778,6 +873,11 @@ public class Innterfax extends javax.swing.JFrame {
     private void cargarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cargarAActionPerformed
+
+    private void EliminateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminateMouseClicked
+        int pos=Integer.parseInt(eliminarfield.getText());
+        programas.remove(pos);
+    }//GEN-LAST:event_EliminateMouseClicked
 
     /**
      * @param args the command line arguments
@@ -816,13 +916,18 @@ public class Innterfax extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button Agregarshow;
+    private javax.swing.JButton Eliminate;
     private javax.swing.JTextArea ListaProgramas;
     private javax.swing.JButton cargarA;
     private java.awt.Button choosebutton;
     private javax.swing.JComboBox<String> claudilists;
+    private javax.swing.JTextField eliminarfield;
     private java.awt.TextField fechafield_shows;
     private javax.swing.JComboBox<String> generofield_shows;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -834,7 +939,12 @@ public class Innterfax extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private java.awt.Label label1;
     private java.awt.Label label10;
@@ -847,8 +957,9 @@ public class Innterfax extends javax.swing.JFrame {
     private java.awt.Label label5;
     private java.awt.Label label6;
     private java.awt.Label label7;
-    private java.awt.Label label8;
     private java.awt.Label label9;
+    private javax.swing.JTextArea listaeliminar;
+    private javax.swing.JTextArea listaprogramas;
     private java.awt.Button modifybutton;
     private java.awt.TextField namefield_clau;
     private java.awt.TextField namefield_shows;
@@ -857,7 +968,7 @@ public class Innterfax extends javax.swing.JFrame {
     private java.awt.TextField newpfield;
     private javax.swing.JComboBox<String> newtypefield;
     private java.awt.TextField newyearfield;
-    private java.awt.TextField posicionfield;
+    private javax.swing.JTextField pos;
     private java.awt.TextField puntuacionfield_shows;
     private javax.swing.JLabel reloj1;
     private javax.swing.JLabel reloj2;
@@ -868,6 +979,6 @@ public class Innterfax extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tipofield_shows;
     // End of variables declaration//GEN-END:variables
 
-    ArrayList<String> listas = new ArrayList();
-
+    ArrayList<Programa> programas = new ArrayList();
+    
 }
